@@ -26,10 +26,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('ngx-sticky-sidebar');
   });
 
-  it('should render title in a h1 tag', () => {
+  it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to ngx-sticky-sidebar!');
+    expect(compiled.querySelector('.content span').textContent).toContain('ngx-sticky-sidebar app is running!');
   });
 });
