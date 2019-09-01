@@ -1,12 +1,21 @@
-import { NgModule } from '@angular/core';
-import { NgxStickySidebarComponent } from './ngx-sticky-sidebar.component';
-
+import {ModuleWithProviders, NgModule} from '@angular/core';
+import {SidebarDirective} from './directives/sidebar.directive';
+import {STICKY_SYDEBAR_CONFIG, StickySidebarConfig} from './sidebar.interface';
 
 
 @NgModule({
-  declarations: [NgxStickySidebarComponent],
+  declarations: [SidebarDirective],
   imports: [
   ],
-  exports: [NgxStickySidebarComponent]
+  exports: [SidebarDirective],
 })
-export class NgxStickySidebarModule { }
+export class NgxStickySidebarModule {
+  static withConfig(config: StickySidebarConfig): ModuleWithProviders {
+    return {
+      ngModule: NgxStickySidebarModule,
+      providers: [
+        {provide: STICKY_SYDEBAR_CONFIG, useValue: config},
+      ],
+    };
+  }
+}

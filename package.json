@@ -1,10 +1,12 @@
 {
   "name": "ngx-sticky-sidebar",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "start:lib": "ng build @smip/ngx-sticky-sidebar --watch",
+    "build": "ng build --prod --base-href=\"/ngx-sticky-sidebar/dist/ngx-sticky-sidebar/\"",
+    "build:lib": "ng build @smip/ngx-sticky-sidebar",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -19,7 +21,11 @@
     "@angular/platform-browser": "~8.2.4",
     "@angular/platform-browser-dynamic": "~8.2.4",
     "@angular/router": "~8.2.4",
+    "@smip/ngx-materialize": "^0.3.0",
+    "css-element-queries": "^1.2.1",
+    "materialize-css": "^1.0.0",
     "rxjs": "~6.4.0",
+    "sticky-sidebar": "^3.3.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

@@ -1,8 +1,30 @@
 {
   "name": "@smip/ngx-sticky-sidebar",
   "version": "0.0.1",
+  "description": "Angular library for making smart and high performance sticky sidebars.",
+  "keywords": [
+    "angular 6",
+    "angular 7",
+    "angular 8",
+    "angular6",
+    "angular7",
+    "angular8",
+    "sticky sidebar",
+    "sticky"
+  ],
+  "author": "Aleksandr Sokolov <sokolov.aleksandr@yahoo.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Smip/ngx-sticky-sidebar.git"
+  },
+  "homepage": "https://github.com/Smip/ngx-sticky-sidebar",
+  "bugs": {
+    "url": "https://github.com/Smip/ngx-sticky-sidebar/issues"
+  },
   "peerDependencies": {
-    "@angular/common": "^8.2.4",
-    "@angular/core": "^8.2.4"
+    "@angular/common": ">=6.0.0 || >=7.0.0 || >=8.0.0",
+    "@angular/core": ">=6.0.0 || >=7.0.0 || >=8.0.0",
+    "sticky-sidebar": "^3.3.1"
   }
 }

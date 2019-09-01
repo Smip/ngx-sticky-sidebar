@@ -30,7 +30,10 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/materialize-css/dist/js/materialize.js",
+              "./node_modules/css-element-queries/src/ResizeSensor.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -159,6 +162,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "ngx-sticky-sidebar"
 }
