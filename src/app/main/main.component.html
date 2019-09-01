@@ -1,0 +1,208 @@
+<div class="container">
+  <div class="row sticky-content">
+    <div class="col s12 m4">
+      <div stickySidebar containerSelector=".sticky-content" innerWrapperSelector=".inner-wrapper-sticky">
+        <div class="card-panel inner-wrapper-sticky">
+          <ul class="section table-of-contents">
+            <li><a [routerLink]="[]" fragment="install">Install</a></li>
+            <li><a [routerLink]="[]" fragment="usage">Usage</a></li>
+            <li><a [routerLink]="[]" fragment="options">Options</a></li>
+            <li><a [routerLink]="[]" fragment="global-options">Global options</a></li>
+            <li><a [routerLink]="[]" fragment="issues">Issues</a></li>
+            <li><a [routerLink]="[]" fragment="license">License</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m8">
+      <div class="card-panel">
+        <section>
+          <h1>
+            Ngx Sticky Sidebar
+          </h1>
+          <p>
+            Angular library for making smart and high performance sticky sidebars.
+          </p>
+          <p>
+            Library based on <a href="https://github.com/abouolia/sticky-sidebar">Pure JavaScript plugin Sticky
+            Sidebar</a>
+          </p>
+        </section>
+        <section id="install" class="section" mScrollSpy>
+          <h2>
+            Install Ngx Sticky Sidebar
+          </h2>
+          <p>
+            <code>
+              npm install @smip/ngx-sticky-sidebar sticky-sidebar -S
+            </code>
+
+          </p>
+          <p>
+            Add <code>NgxStickySidebarModule</code> import to your module:
+          </p>
+
+          <pre>
+import {{ '{' }} NgxStickySidebarModule } from '@smip/ngx-sticky-sidebar';
+
+...
+
+@NgModule({{ '{' }}
+  imports: [
+    ...
+    NgxStickySidebarModule
+    ...
+  ],
+  ...
+})
+            </pre>
+          <p>
+            Highly recommend install <a
+            href="https://github.com/marcj/css-element-queries/blob/master/src/ResizeSensor.js">ResizeSensor.js</a> to
+            use with <code>sticky-sidebar</code>.
+          </p>
+          <p>
+            More info <a href="https://github.com/abouolia/sticky-sidebar#usage-with-resizesensorjs">here</a>
+          </p>
+          <h3>
+            Installation ResizeSensor.js
+          </h3>
+          <p>
+            <code>
+              npm install css-element-queries -S
+            </code>
+          </p>
+          <p>
+            Add <code>"./node_modules/css-element-queries/src/ResizeSensor.js"</code> to <code>angular.json</code> in
+            section <code>scripts</code>
+          </p>
+        </section>
+        <section id="usage" class="section" mScrollSpy>
+          <h2>Usage</h2>
+          <p>
+            Add <code>stickySidebar</code> directive to element witch will be sticky
+          </p>
+          <p>Your website's html structure has to be similar to this in order to work:</p>
+          <pre>
+&lt;div class="main-content"&gt;
+    &lt;div stickySidebar
+          containerSelector=".main-content"
+          innerWrapperSelector=".sidebar__inner"&gt;
+        &lt;div class="sidebar__inner"&gt;
+            &lt;!-- Content goes here --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="content"&gt;
+        &lt;!-- Content goes here --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+          </pre>
+          <p>
+            Note that inner sidebar wrapper <code>.sidebar__inner</code> is optional but highly recommended, if you
+            don't write it yourself, the script will create one for you under class name inner-wrapper-sticky. but this
+            may cause many problems.
+          </p>
+        </section>
+        <section id="options" class="section" mScrollSpy>
+          <h3>Options</h3>
+          <p>
+            All parameters are set through the corresponding attributes. For example:
+          </p>
+          <pre>
+&lt;div
+      stickySidebar
+      containerSelector=".main-content"
+      innerWrapperSelector=".sidebar__inner"&gt;
+&lt;/div&gt;
+          </pre>
+          <p>
+            About options you could read <a href="https://abouolia.github.io/sticky-sidebar/">here</a>
+          </p>
+        </section>
+        <section id="global-options" class="section" mScrollSpy>
+          <h3>Global options</h3>
+          <p>Additionally you could set all or same parameters globally, via including module with method <code>withConfig</code>
+          </p>
+          <p>For example:</p>
+          <pre>
+import {{ '{' }} NgxStickySidebarModule } from '@smip/ngx-sticky-sidebar';
+
+...
+
+@NgModule({{ '{' }}
+  imports: [
+    ...
+    NgxStickySidebarModule.withConfig({{ '{' }}
+          minWidth: 992
+          })
+    ...
+  ],
+  ...
+})
+          </pre>
+        </section>
+        <section id="issues" class="section" mScrollSpy>
+          <h2>Issues</h2>
+          <p>
+            If you have questions or issues feel free to create new an topic in <a
+            href="https://github.com/Smip/ngx-sticky-sidebar/issues">issues</a>.
+          </p>
+        </section>
+        <section id="license" class="section" mScrollSpy>
+          <h2>License</h2>
+          <p>
+            Licensed under <a href="https://opensource.org/licenses/MIT">MIT</a>.
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      <div class="card-panel">
+        <h3>Unimportant text to demonstrate the plugin</h3>
+        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto facilis fugit illo, impedit inventore
+          ipsam minus nihil optio quibusdam quod soluta voluptate? Eos eveniet harum maiores nemo quae. Cumque, dolorum!
+        </div>
+        <div>Assumenda at beatae cum eaque illum necessitatibus nihil odit quia rerum voluptas. Eius eveniet facilis
+          minima officia praesentium, quas quasi soluta vel voluptate! Consectetur deleniti illo nulla, obcaecati odit
+          quisquam.
+        </div>
+        <div>Atque necessitatibus nesciunt odit reiciendis rem sapiente sunt voluptatum! Architecto assumenda
+          consequuntur cum delectus doloremque, maiores modi molestiae sed tempore voluptate? Aliquam, asperiores
+          eveniet fuga illo numquam possimus tempore vitae.
+        </div>
+        <div>Ab accusamus animi aut earum, eligendi eveniet molestiae necessitatibus quaerat quibusdam ratione sapiente
+          soluta, unde vel. Adipisci cum dicta doloremque nobis! Delectus dolorum exercitationem facilis impedit ipsa
+          ipsum quo voluptatem?
+        </div>
+        <div>Aliquid aspernatur atque autem dignissimos eligendi et eveniet expedita harum illo, illum natus neque nobis
+          nulla officiis placeat quaerat repellendus ut voluptate voluptatem voluptatibus? Consequuntur eos, suscipit.
+          Aliquam assumenda, earum.
+        </div>
+        <div>Beatae dolores molestiae natus neque repellat. Ab, ad aut debitis earum eos illo iste itaque magnam, nemo
+          repudiandae soluta veritatis voluptatum! Dolore doloremque labore porro provident reiciendis repellat velit
+          vitae.
+        </div>
+        <div>Ab accusamus, accusantium cum ea eius eos eveniet ex ipsum laboriosam mollitia nemo officia, placeat
+          reprehenderit! Accusamus aperiam assumenda deleniti dicta doloremque dolores, ea eaque earum eligendi illo
+          ratione, voluptatem.
+        </div>
+        <div>Accusantium atque cupiditate distinctio, earum facilis nobis obcaecati provident quia quibusdam
+          repudiandae. Cum excepturi iusto mollitia. Architecto commodi culpa exercitationem nulla quod? Architecto
+          cupiditate expedita incidunt iure mollitia repudiandae veniam!
+        </div>
+        <div>Ad blanditiis delectus fugiat in laudantium libero, natus qui repudiandae tenetur, vel voluptas voluptates!
+          A debitis deserunt, dolorum provident quaerat sint soluta voluptate? Ab, accusantium doloremque dolorum itaque
+          officia unde!
+        </div>
+        <div>A, ad aliquid culpa distinctio doloribus ea eos error ex exercitationem illum ipsa labore laborum maiores
+          minus necessitatibus nisi obcaecati, odio quo rem repellendus reprehenderit sequi, temporibus tenetur vero
+          voluptatibus.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

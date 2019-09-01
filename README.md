@@ -8,7 +8,7 @@ Library based on [Pure JavaScript plugin Sticky Sidebar](https://github.com/abou
 
 ## Installation
 
-Run `npm install @smip/ngx-sticky-sidebar -S`
+Run `npm install @smip/ngx-sticky-sidebar sticky-sidebar -S`
 
 Add `NgxStickySidebarModule` import to your module: 
 
