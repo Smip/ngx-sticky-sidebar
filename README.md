@@ -8,7 +8,7 @@ Library based on [Pure JavaScript plugin Sticky Sidebar](https://github.com/abou
 
 ## Installation
 
-Run `npm install @smip/ngx-sticky-sidebar sticky-sidebar -S`
+Run `npm install @smip/ngx-sticky-sidebar -S`
 
 Add `NgxStickySidebarModule` import to your module: 
 
@@ -58,11 +58,39 @@ Add `stickySidebar` directive to element witch will be sticky
 
 Note that inner sidebar wrapper `.sidebar__inner` is optional but highly recommended, if you don't write it yourself, the script will create one for you under class name inner-wrapper-sticky. but this may cause many problems.
 
+### UpdateSticky
+
+`updateSticky` - subject to force re-calculation of all cached dimensions of sidebar, container and viewport and update position of sidebar according to the new dimensions.
+
+#### Example
+
+Template:
+
+```angular2html
+<div
+      stickySidebar
+      [updateSticky]="updateSticky">
+</div>
+```
+
+Component:
+
+```typescript
+import {Subject} from 'rxjs/Subject';
+
+export class SomeComponent {
+    updateSticky: Subject<boolean> = new Subject();
+    updateMethod(){
+      this.updateSticky.next(true);
+    }
+}
+```
+
 ### Options
 
 All parameters are set through the corresponding attributes. For example:
 
-```
+```angular2html
 <div
       stickySidebar
       containerSelector=".main-content"

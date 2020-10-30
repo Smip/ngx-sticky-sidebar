@@ -1,6 +1,7 @@
 import {Directive, ElementRef, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import StickySidebar from 'sticky-sidebar';
 import {SidebarService} from '../services/sidebar.service';
+import {Subject} from 'rxjs';
 
 @Directive({
   selector: '[stickySidebar]',
@@ -13,6 +14,8 @@ export class SidebarDirective implements OnInit, OnDestroy {
   @Input() innerWrapperSelector: string = this.sidebarConfig.config.innerWrapperSelector;
   @Input() stickyClass: string = this.sidebarConfig.config.stickyClass;
   @Input() minWidth: number | string = this.sidebarConfig.config.minWidth;
+
+  @Input() updateSticky: Subject<boolean>;
 
   @Output() stickySidebarAffixTop: EventEmitter<{}> = new EventEmitter();
   @Output() stickySidebarAffixedTop: EventEmitter<{}> = new EventEmitter();
@@ -45,6 +48,12 @@ export class SidebarDirective implements OnInit, OnDestroy {
         minWidth: +this.minWidth,
       },
     );
+    if (this.updateSticky) {
+      this.updateSticky.subscribe(() => {
+        this.stickySidebar.updateSticky();
+      });
+    }
+
   }
 
   @HostListener('affix.top.stickySidebar') onStickySidebarAffixTop() {
