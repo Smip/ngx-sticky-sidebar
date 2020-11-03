@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-sticky-sidebar",
+            "outputPath": "dist/ngx-sticky-sidebar/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -124,6 +124,53 @@
               "devServerTarget": "ngx-sticky-sidebar:serve:production"
             }
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/ngx-sticky-sidebar/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "ngx-sticky-sidebar:build",
+            "serverTarget": "ngx-sticky-sidebar:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngx-sticky-sidebar:build:production",
+              "serverTarget": "ngx-sticky-sidebar:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "ngx-sticky-sidebar:build:production",
+            "serverTarget": "ngx-sticky-sidebar:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
+          }
         }
       }
     },
@@ -138,14 +185,13 @@
           "options": {
             "tsConfig": "projects/smip/ngx-sticky-sidebar/tsconfig.lib.json",
             "project": "projects/smip/ngx-sticky-sidebar/ng-package.json"
-          }
-        ,
-        "configurations": {
+          },
+          "configurations": {
             "production": {
               "tsConfig": "projects/smip/ngx-sticky-sidebar/tsconfig.lib.prod.json"
             }
           }
-},
+        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
@@ -169,5 +215,8 @@
       }
     }
   },
-  "defaultProject": "ngx-sticky-sidebar"
+  "defaultProject": "ngx-sticky-sidebar",
+  "cli": {
+    "analytics": false
+  }
 }
