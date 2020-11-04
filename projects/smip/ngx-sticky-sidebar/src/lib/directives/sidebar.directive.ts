@@ -1,5 +1,5 @@
-import {Directive, ElementRef, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import StickySidebar from 'sticky-sidebar';
+import { isPlatformBrowser } from '@angular/common';
+import { Directive, ElementRef, EventEmitter, HostListener, Inject, Input, OnDestroy, OnInit, Output, PLATFORM_ID} from '@angular/core';
 import {SidebarService} from '../services/sidebar.service';
 import {Subject} from 'rxjs';
 
@@ -32,28 +32,35 @@ export class SidebarDirective implements OnInit, OnDestroy {
   constructor(
     private element: ElementRef,
     private sidebarConfig: SidebarService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
   }
 
 
   ngOnInit(): void {
-    this.stickySidebar = new StickySidebar(this.element.nativeElement,
-      {
-        topSpacing: +this.topSpacing,
-        bottomSpacing: +this.bottomSpacing,
-        containerSelector: this.containerSelector,
-        innerWrapperSelector: this.innerWrapperSelector,
-        resizeSensor: this.resizeSensor,
-        stickyClass: this.stickyClass,
-        minWidth: +this.minWidth,
-      },
-    );
-    if (this.updateSticky) {
-      this.updateSticky.subscribe(() => {
-        this.stickySidebar.updateSticky();
-      });
-    }
+    if (isPlatformBrowser(this.platformId)) {
+      import('sticky-sidebar').then((module) => {
+        const StickySidebar = module.default;
 
+        this.stickySidebar = new StickySidebar(this.element.nativeElement,
+              {
+                topSpacing: +this.topSpacing,
+                bottomSpacing: +this.bottomSpacing,
+                containerSelector: this.containerSelector,
+                innerWrapperSelector: this.innerWrapperSelector,
+                resizeSensor: this.resizeSensor,
+                stickyClass: this.stickyClass,
+                minWidth: +this.minWidth,
+              },
+            );
+
+        if (this.updateSticky) {
+          this.updateSticky.subscribe(() => {
+            this.stickySidebar.updateSticky();
+          });
+        }
+      })
+    }
   }
 
   @HostListener('affix.top.stickySidebar') onStickySidebarAffixTop() {
