@@ -13,7 +13,7 @@ import {NgxMaterialize} from '@smip/ngx-materialize';
     MainComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     NgxStickySidebarModule.withConfig({
       minWidth: 992,

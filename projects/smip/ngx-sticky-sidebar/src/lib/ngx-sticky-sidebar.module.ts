@@ -10,7 +10,7 @@ import {STICKY_SYDEBAR_CONFIG, StickySidebarConfig} from './sidebar.interface';
   exports: [SidebarDirective],
 })
 export class NgxStickySidebarModule {
-  static withConfig(config: StickySidebarConfig): ModuleWithProviders {
+  static withConfig(config: StickySidebarConfig): ModuleWithProviders<NgxStickySidebarModule> {
     return {
       ngModule: NgxStickySidebarModule,
       providers: [

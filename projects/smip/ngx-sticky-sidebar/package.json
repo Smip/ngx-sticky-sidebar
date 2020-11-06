@@ -23,8 +23,8 @@
     "url": "https://github.com/Smip/ngx-sticky-sidebar/issues"
   },
   "peerDependencies": {
-    "@angular/common": ">=6.0.0 || >=7.0.0 || >=8.0.0",
-    "@angular/core": ">=6.0.0 || >=7.0.0 || >=8.0.0",
+    "@angular/common": ">=6.0.0 || >=7.0.0 || >=8.0.0 || >=9.0.0",
+    "@angular/core": ">=6.0.0 || >=7.0.0 || >=8.0.0 || >=9.0.0",
     "sticky-sidebar": "^3.3.1"
   }
 }
