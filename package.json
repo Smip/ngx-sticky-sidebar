@@ -29,7 +29,7 @@
     "@nguniversal/express-engine": "^9.1.1",
     "@smip/ngx-materialize": "^0.3.0",
     "css-element-queries": "^1.2.1",
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "materialize-css": "^1.0.0",
     "rxjs": "~6.6.3",
     "sticky-sidebar": "^3.3.1",
